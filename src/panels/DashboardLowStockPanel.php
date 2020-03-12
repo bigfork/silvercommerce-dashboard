@@ -8,6 +8,7 @@ use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
 use UncleCheese\Dashboard\DashboardPanelAction;
+use SilverCommerce\CatalogueAdmin\Admin\CatalogueAdmin;
 
 class DashboardLowStockPanel extends DashboardPanel
 {
@@ -46,7 +47,7 @@ class DashboardLowStockPanel extends DashboardPanel
      */
     public function CatalogueLink()
     {
-        return Injector::inst()->create("CatalogueAdmin")->Link();
+        return Injector::inst()->create(CatalogueAdmin::class)->Link();
     }
 
     public function getConfiguration()
@@ -86,9 +87,16 @@ class DashboardLowStockPanel extends DashboardPanel
     {
         $count = ($this->Count) ? $this->Count : 7;
         
-        return Product::get()
-            ->filter("StockLevel:LessThan", Commerce::config()->low_stock_number)
-            ->sort("StockLevel", "ASC")
-            ->limit($count);
+        $products = Product::get();
+        
+        if (class_exists("SilverCommerce\Stock\Extensions\ProductExtension")) {
+            return $products->filterByCallback(function($item, $list) {
+                    return $item->isStockLow();
+                })
+                ->sort("StockLevel", "ASC")
+                ->limit($count);
+        }
+            
+        return $products;
     }
 }

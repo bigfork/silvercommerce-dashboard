@@ -2,6 +2,7 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
+use SilverCommerce\OrdersAdmin\Model\Invoice;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
@@ -87,9 +88,9 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
     public function Orders()
     {
         $count = ($this->Count) ? $this->Count : 7;
-        $status = Order::config()->incomplete_status;
+        $status = Invoice::config()->incomplete_status;
 
-        return Order::get()
+        return Invoice::get()
             ->filter(
                 array(
                     "ClassName" => "Order",

@@ -2,8 +2,11 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
+use SilverStripe\Security\Group;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
+use ilateral\SilverStripe\Users\Users;
 use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
 use UncleCheese\Dashboard\DashboardPanelAction;

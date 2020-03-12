@@ -4,8 +4,13 @@ namespace SilverCommerce\Dashboard\Panel;
 
 use Product;
 use Category;
+use SilverStripe\Assets\File;
+use SilverStripe\Security\Group;
+use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
+use ilateral\SilverStripe\Users\Users;
 use UncleCheese\Dashboard\DashboardPanel;
+use SilverStripe\CMS\Model\SiteTree;
 
 class DashboardContentSummaryPanel extends DashboardPanel
 {
@@ -60,7 +65,10 @@ class DashboardContentSummaryPanel extends DashboardPanel
      */
     public function Pages()
     {
-        return SiteTree::get()->count();
+        if (class_exists("SilverStripe/CMS/Model/SiteTree")) {
+            return SiteTree::get()->count();
+        }
+        return 0;
     }
 
 

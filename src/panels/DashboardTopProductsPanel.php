@@ -4,10 +4,12 @@ namespace SilverCommerce\Dashboard\Panel;
 
 use DateTime;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
+use SilverCommerce\OrdersAdmin\Model\Invoice;
 use UncleCheese\Dashboard\DashboardPanelAction;
 
 class DashboardTopProductsPanel extends DashboardPanel
@@ -93,7 +95,7 @@ class DashboardTopProductsPanel extends DashboardPanel
         $end_date = new DateTime();
 
         // Get all orders in the date range
-        $orders = Order::get()
+        $orders = Invoice::get()
             ->filter(array(
                 "Created:GreaterThan" => $start_date->format('Y-m-d H:i:s'),
                 "Created:LessThan" => $end_date->format('Y-m-d H:i:s')

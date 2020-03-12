@@ -4,8 +4,10 @@ namespace SilverCommerce\Dashboard\Panel;
 
 use DateTime;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
 use UncleCheese\Dashboard\DashboardChart;
 use UncleCheese\Dashboard\DashboardPanel;
+use SilverCommerce\OrdersAdmin\Model\Invoice;
 
 class DashboardRecentOrdersChartPanel extends DashboardPanel
 {
@@ -35,7 +37,7 @@ class DashboardRecentOrdersChartPanel extends DashboardPanel
         );
 
         $results = ArrayList::create();
-        $status = Order::config()->incomplete_status;
+        $status = Invoice::config()->incomplete_status;
 
         // Get results for the last 30 days
         for ($i = 0; $i < 30; $i++) {
@@ -45,7 +47,7 @@ class DashboardRecentOrdersChartPanel extends DashboardPanel
                 $date->modify("-{$i} day");
             }
 
-            $orders = Order::get()
+            $orders = Invoice::get()
                 ->filter(
                     array(
                         "Created:PartialMatch" => $date->format('Y-m-d'),
