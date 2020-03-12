@@ -10,7 +10,7 @@ use UncleCheese\Dashboard\DashboardPanel;
 class DashboardContentSummaryPanel extends DashboardPanel
 {
 
-    private static $icon = "commerce/images/search.png";
+    private static $icon = "silvercommerce/dashboard: client/dist/images/search.png";
 
 	private static $defaults = array (
 		"PanelSize" => "small"
@@ -29,7 +29,7 @@ class DashboardContentSummaryPanel extends DashboardPanel
 
     public function PanelHolder()
     {
-        Requirements::css("commerce/css/dashboard-commerce.css");
+        Requirements::css("silvercommerce/dashboard: client/dist/css/dashboard.css");
         return parent::PanelHolder();
     }
 

@@ -19,7 +19,7 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
         'PanelSize' => "normal"
     );
 
-    private static $icon = "commerce/images/order_162.png";
+    private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
 
     public function getLabel()
     {
@@ -43,7 +43,7 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
 
     public function PanelHolder()
     {
-        Requirements::css("commerce/css/dashboard-commerce.css");
+        Requirements::css("silvercommerce/dashboard: client/dist/css/dashboard.css");
         return parent::PanelHolder();
     }
 

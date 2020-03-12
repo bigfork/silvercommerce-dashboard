@@ -21,7 +21,7 @@ class DashboardLowStockPanel extends DashboardPanel
 		'PanelSize' => "small"
 	);
 
-    private static $icon = "commerce/images/warning.png";
+    private static $icon = "silvercommerce/dashboard: client/dist/images/warning.png";
 
     public function getLabel()
     {
@@ -35,7 +35,7 @@ class DashboardLowStockPanel extends DashboardPanel
 
     public function PanelHolder()
     {
-        Requirements::css("commerce/css/dashboard-commerce.css");
+        Requirements::css("silvercommerce/dashboard: client/dist/css/dashboard.css");
         return parent::PanelHolder();
     }
 

@@ -1,0 +1,19 @@
+.dashboard-commerce-panel th,
+.dashboard-commerce-panel td {
+    padding: 0.25em;
+}
+
+.dashboard-commerce-panel th {
+    font-weight: bold;
+}
+
+.dashboard-commerce-panel table {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.dashboard-site-summary th,
+.dashboard-site-summary td {
+    font-size: 1.5em;
+    padding-bottom: 1em;
+}

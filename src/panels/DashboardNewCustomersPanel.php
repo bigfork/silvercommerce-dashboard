@@ -11,7 +11,7 @@ use UncleCheese\Dashboard\DashboardPanelAction;
 class DashboardNewCustomersPanel extends DashboardPanel
 {
 
-    private static $icon = "commerce/images/customers.png";
+    private static $icon = "silvercommerce/dashboard: client/dist/images/customers.png";
 
     private static $db = array (
         "Count" => "Int"
@@ -45,7 +45,7 @@ class DashboardNewCustomersPanel extends DashboardPanel
 
     public function PanelHolder()
     {
-        Requirements::css("commerce/css/dashboard-commerce.css");
+        Requirements::css("silvercommerce/dashboard: client/dist/css/dashboard.css");
         return parent::PanelHolder();
     }
 

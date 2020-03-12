@@ -10,7 +10,7 @@ use UncleCheese\Dashboard\DashboardPanel;
 class DashboardRecentOrdersChartPanel extends DashboardPanel
 {
 
-    private static $icon = "commerce/images/order_162.png";
+    private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
 
     private static $defaults = array (
         'PanelSize' => "large"
