@@ -2,12 +2,13 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
-use SilverCommerce\OrdersAdmin\Model\Invoice;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
+use SilverCommerce\OrdersAdmin\Model\Invoice;
 use UncleCheese\Dashboard\DashboardPanelAction;
+use SilverCommerce\OrdersAdmin\Admin\OrderAdmin;
 
 class DashboardRecentOrdersListPanel extends DashboardPanel
 {
@@ -39,7 +40,7 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
      */
     public function Orderslink()
     {
-        return Injector::inst()->create("OrderAdmin")->Link();
+        return Injector::inst()->create(OrderAdmin::class)->Link();
     }
 
     public function PanelHolder()

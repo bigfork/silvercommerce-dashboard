@@ -6,6 +6,7 @@ use SilverStripe\Security\Group;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
+use SilverStripe\Admin\SecurityAdmin;
 use ilateral\SilverStripe\Users\Users;
 use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
@@ -43,7 +44,7 @@ class DashboardNewCustomersPanel extends DashboardPanel
      */
     public function Securitylink()
     {
-        return Injector::inst()->create("SecurityAdmin")->Link();
+        return Injector::inst()->create(SecurityAdmin::class)->Link();
     }
 
     public function PanelHolder()

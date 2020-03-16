@@ -33,7 +33,8 @@ class DashboardRecentOrdersChartPanel extends DashboardPanel
         $chart = DashboardChart::create(
             "Last 30 days orders",
             "Date",
-            "Number of orders"
+            "Number of orders",
+            null
         );
 
         $results = ArrayList::create();

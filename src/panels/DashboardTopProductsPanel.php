@@ -43,7 +43,10 @@ class DashboardTopProductsPanel extends DashboardPanel
      */
     public function ReportLink()
     {
-        return Injector::inst()->create("OrderItemReport")->getLink();
+        if (class_exists('SilverCommerce\Reports\ItemsOrderedReport')) {
+            return Injector::inst()->create(SilverCommerce\Reports\ItemsOrderedReport::class)->getLink();
+        }
+        return null;
     }
 
     public function PanelHolder()
