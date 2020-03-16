@@ -25,12 +25,12 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('Commerce.RecentOrdersList', 'Recent Orders List');
+        return _t('SilverCommerce.RecentOrdersList', 'Recent Orders List');
     }
 
     public function getDescription()
     {
-        return _t('Commerce.RecentOrdersListDescription', 'Shows a list of recent orders.');
+        return _t('SilverCommerce.RecentOrdersListDescription', 'Shows a list of recent orders.');
     }
 
     /**
@@ -74,7 +74,7 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
         $actions->push(
             DashboardPanelAction::create(
                 $this->OrdersLink(),
-                _t("Commerce.ViewAll", "View All")
+                _t("SilverCommerce.ViewAll", "View All")
             )
         );
             
@@ -94,7 +94,6 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
         return Invoice::get()
             ->filter(
                 array(
-                    "ClassName" => "Order",
                     "Status:not" => $status
                 )
             )->sort("Created DESC")

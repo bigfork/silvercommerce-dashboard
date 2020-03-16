@@ -20,12 +20,12 @@ class DashboardRecentOrdersChartPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('Commerce.RecentOrdersChart', 'Recent Orders Chart');
+        return _t('SilverCommerce.RecentOrdersChart', 'Recent Orders Chart');
     }
 
     public function getDescription()
     {
-        return _t('Commerce.RecentOrdersChartDescription', 'Shows a chart of the last months orders.');
+        return _t('SilverCommerce.RecentOrdersChartDescription', 'Shows a chart of the last months orders.');
     }
 
     public function Chart()
@@ -52,7 +52,6 @@ class DashboardRecentOrdersChartPanel extends DashboardPanel
                 ->filter(
                     array(
                         "Created:PartialMatch" => $date->format('Y-m-d'),
-                        "ClassName" => "Order",
                         "Status:not" => $status
                     )
                 )->count();

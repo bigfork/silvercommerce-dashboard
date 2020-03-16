@@ -2,8 +2,8 @@
     <table>
         <thead>
             <tr>
-                <th><%t Commerce.Name "Name" %></th>
-                <th><%t Commerce.Joined "Joined" %></th>
+                <th><%t SilverCommerce.Name "Name" %></th>
+                <th><%t SilverCommerce.Joined "Joined" %></th>
             </tr>
         </thead>
         <tbody>

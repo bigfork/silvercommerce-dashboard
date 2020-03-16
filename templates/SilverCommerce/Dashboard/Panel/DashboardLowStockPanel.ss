@@ -2,9 +2,9 @@
     <table>
         <thead>
             <tr>
-                <th><%t Commerce.StockID "StockID" %></th>
-                <th><%t Commerce.Title "Title" %></th>
-                <th><%t Commerce.QTY "QTY" %></th>
+                <th><%t SilverCommerce.StockID "StockID" %></th>
+                <th><%t SilverCommerce.Title "Title" %></th>
+                <th><%t SilverCommerce.QTY "QTY" %></th>
             </tr>
         </thead>
         <tbody>

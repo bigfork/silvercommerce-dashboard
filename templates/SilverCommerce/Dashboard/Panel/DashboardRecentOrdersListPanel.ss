@@ -3,8 +3,8 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th><%t Commerce.Email "Date" %></th>
-                <th><%t Commerce.Total "Total" %></th>
+                <th><%t SilverCommerce.Email "Date" %></th>
+                <th><%t SilverCommerce.Total "Total" %></th>
             </tr>
         </thead>
         <tbody>

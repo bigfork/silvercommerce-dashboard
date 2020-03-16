@@ -28,13 +28,13 @@ class DashboardNewCustomersPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('Commerce.LatestCustomers','Latest Customers');
+        return _t('SilverCommerce.LatestCustomers','Latest Customers');
     }
 
 
     public function getDescription()
     {
-        return _t('Commerce.LatestCustomersDescription','Shows latest customers to join.');
+        return _t('SilverCommerce.LatestCustomersDescription','Shows latest customers to join.');
     }
 
     /**
@@ -74,7 +74,7 @@ class DashboardNewCustomersPanel extends DashboardPanel
 		$actions = parent::getSecondaryActions();
 		$actions->push(DashboardPanelAction::create(
             $this->Securitylink(),
-            _t("Commerce.ViewAll", "View All")
+            _t("SilverCommerce.ViewAll", "View All")
         ));
 			
 		return $actions;

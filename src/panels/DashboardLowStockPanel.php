@@ -26,12 +26,12 @@ class DashboardLowStockPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('Commerce.LowStock','Low Stock');
+        return _t('SilverCommerce.LowStock','Low Stock');
     }
 
     public function getDescription()
     {
-        return _t('Commerce.LowStockDescription','List of low stock products.');
+        return _t('SilverCommerce.LowStockDescription','List of low stock products.');
     }
 
     public function PanelHolder()
@@ -72,7 +72,7 @@ class DashboardLowStockPanel extends DashboardPanel
 		$actions = parent::getSecondaryActions();
 		$actions->push(DashboardPanelAction::create(
             $this->CatalogueLink(),
-            _t("Commerce.ViewAll", "View All")
+            _t("SilverCommerce.ViewAll", "View All")
         ));
 			
 		return $actions;

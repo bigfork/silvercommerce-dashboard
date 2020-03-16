@@ -28,12 +28,12 @@ class DashboardTopProductsPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('Commerce.TopProducts','Top Products');
+        return _t('SilverCommerce.TopProducts','Top Products');
     }
 
     public function getDescription()
     {
-        return _t('Commerce.TopProductsDescription','Shows top selling products this month.');
+        return _t('SilverCommerce.TopProductsDescription','Shows top selling products this month.');
     }
 
     /**
@@ -59,10 +59,12 @@ class DashboardTopProductsPanel extends DashboardPanel
     {
         $fields = parent::getConfiguration();
 
-        $fields->push(TextField::create(
-        "Count",
-        "Number of products to show"
-        ));
+        $fields->push(
+            TextField::create(
+                "Count",
+                "Number of products to show"
+            )
+        );
 
         return $fields;
     }
@@ -77,7 +79,7 @@ class DashboardTopProductsPanel extends DashboardPanel
 		$actions = parent::getSecondaryActions();
 		$actions->push(DashboardPanelAction::create(
             $this->ReportLink(),
-            _t("Commerce.ViewAll", "View All")
+            _t("SilverCommerce.ViewAll", "View All")
         ));
 			
 		return $actions;

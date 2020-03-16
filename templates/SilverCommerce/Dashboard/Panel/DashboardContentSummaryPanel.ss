@@ -2,23 +2,23 @@
     <table>
         <tbody>
             <tr>
-                <th><%t Commerce.Products "Products" %></th>
+                <th><%t SilverCommerce.Products "Products" %></th>
                 <td>$Products</td>
             <tr>
             <tr>
-                <th><%t Commerce.Categories "Categories" %></th>
+                <th><%t SilverCommerce.Categories "Categories" %></th>
                 <td>$Categories</td>
             <tr>
             <tr>
-                <th><%t Commerce.Customers "Customers" %></th>
+                <th><%t SilverCommerce.Customers "Customers" %></th>
                 <td>$Customers</td>
             </tr>
             <tr>
-                <th><%t Commerce.Pages "Pages" %></th>
+                <th><%t SilverCommerce.Pages "Pages" %></th>
                 <td>$Pages</td>
             </tr>
             <tr>
-                <th><%t Commerce.Files "Files" %></th>
+                <th><%t SilverCommerce.Files "Files" %></th>
                 <td>$Files</td>
             </tr>
         </tbody>

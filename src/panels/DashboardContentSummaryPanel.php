@@ -23,13 +23,13 @@ class DashboardContentSummaryPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('Commerce.SiteContentSummary','Site Content Summary');
+        return _t('SilverCommerce.SiteContentSummary','Site Content Summary');
     }
 
 
     public function getDescription()
     {
-        return _t('Commerce.SiteContentSummaryDescription','Show a summary of website content');
+        return _t('SilverCommerce.SiteContentSummaryDescription','Show a summary of website content');
     }
 
     public function PanelHolder()
