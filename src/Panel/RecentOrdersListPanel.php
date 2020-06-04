@@ -12,6 +12,7 @@ use SilverCommerce\OrdersAdmin\Admin\OrderAdmin;
 
 class RecentOrdersListPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardRecentOrdersListPanel';
 
     private static $db = array (
         'Count' => 'Int'

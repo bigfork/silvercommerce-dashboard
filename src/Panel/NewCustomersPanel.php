@@ -14,6 +14,7 @@ use UncleCheese\Dashboard\DashboardPanelAction;
 
 class NewCustomersPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardNewCustomersPanel';
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/customers.png";
 

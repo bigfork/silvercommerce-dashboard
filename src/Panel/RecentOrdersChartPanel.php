@@ -11,6 +11,7 @@ use SilverCommerce\OrdersAdmin\Model\Invoice;
 
 class RecentOrdersChartPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardRecentOrdersChartPanel';
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
 

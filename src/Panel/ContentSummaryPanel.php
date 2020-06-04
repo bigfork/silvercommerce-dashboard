@@ -14,6 +14,7 @@ use SilverStripe\CMS\Model\SiteTree;
 
 class ContentSummaryPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardContentSummaryPanel';
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/search.png";
 

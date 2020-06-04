@@ -7,6 +7,8 @@ use SilverCommerce\OrdersAdmin\Model\Invoice;
 
 class OrderStatusPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardOrderStatusPanel';
+
     private static $icon = "silvercommerce/dashboard: client/dist/images/order.png";
 
 	private static $defaults = array (

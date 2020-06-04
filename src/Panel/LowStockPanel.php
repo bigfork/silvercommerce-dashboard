@@ -12,6 +12,7 @@ use SilverCommerce\CatalogueAdmin\Model\CatalogueProduct;
 
 class LowStockPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardLowStockPanel';
 
     private static $db = array (
         'Count' => 'Int'

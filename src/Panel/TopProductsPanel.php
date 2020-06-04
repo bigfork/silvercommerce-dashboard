@@ -15,6 +15,7 @@ use SilverCommerce\Reports\ItemsOrderedReport;
 
 class TopProductsPanel extends DashboardPanel
 {
+    private static $table_name = 'DashboardTopProductsPanel';
 
     private static $db = array (
         'Count' => 'Int'
