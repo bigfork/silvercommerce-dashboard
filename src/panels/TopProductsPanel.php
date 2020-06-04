@@ -11,8 +11,9 @@ use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
 use UncleCheese\Dashboard\DashboardPanelAction;
+use SilverCommerce\Reports\ItemsOrderedReport;
 
-class DashboardTopProductsPanel extends DashboardPanel
+class TopProductsPanel extends DashboardPanel
 {
 
     private static $db = array (
@@ -28,12 +29,12 @@ class DashboardTopProductsPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('SilverCommerce.TopProducts','Top Products');
+        return _t(__CLASS__ . '.TopProducts', 'Top Products');
     }
 
     public function getDescription()
     {
-        return _t('SilverCommerce.TopProductsDescription','Shows top selling products this month.');
+        return _t(__CLASS__ . '.TopProductsDescription' ,'Shows top selling products this month.');
     }
 
     /**
@@ -43,8 +44,8 @@ class DashboardTopProductsPanel extends DashboardPanel
      */
     public function ReportLink()
     {
-        if (class_exists('SilverCommerce\Reports\ItemsOrderedReport')) {
-            return Injector::inst()->create(SilverCommerce\Reports\ItemsOrderedReport::class)->getLink();
+        if (class_exists(ItemsOrderedReport::class)) {
+            return Injector::inst()->create(ItemsOrderedReport::class)->getLink();
         }
         return null;
     }

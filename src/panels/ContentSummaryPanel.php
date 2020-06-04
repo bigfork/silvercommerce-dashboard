@@ -2,17 +2,17 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
-use Product;
-use Category;
 use SilverStripe\Assets\File;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
 use ilateral\SilverStripe\Users\Users;
+use SilverCommerce\CatalogueAdmin\Model\CatalogueCategory;
+use SilverCommerce\CatalogueAdmin\Model\CatalogueProduct;
 use UncleCheese\Dashboard\DashboardPanel;
 use SilverStripe\CMS\Model\SiteTree;
 
-class DashboardContentSummaryPanel extends DashboardPanel
+class ContentSummaryPanel extends DashboardPanel
 {
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/search.png";
@@ -23,13 +23,13 @@ class DashboardContentSummaryPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('SilverCommerce.SiteContentSummary','Site Content Summary');
+        return _t(__CLASS__ . '.SiteContentSummary', 'Site Content Summary');
     }
 
 
     public function getDescription()
     {
-        return _t('SilverCommerce.SiteContentSummaryDescription','Show a summary of website content');
+        return _t(__CLASS__ . '.SiteContentSummaryDescription', 'Show a summary of website content');
     }
 
     public function PanelHolder()
@@ -45,7 +45,7 @@ class DashboardContentSummaryPanel extends DashboardPanel
      */
     public function Products()
     {
-        return Product::get()->count();
+        return CatalogueProduct::get()->count();
     }
 
     /**
@@ -55,7 +55,7 @@ class DashboardContentSummaryPanel extends DashboardPanel
      */
     public function Categories()
     {
-        return Category::get()->count();
+        return CatalogueCategory::get()->count();
     }
 
     /**
@@ -65,7 +65,7 @@ class DashboardContentSummaryPanel extends DashboardPanel
      */
     public function Pages()
     {
-        if (class_exists("SilverStripe/CMS/Model/SiteTree")) {
+        if (class_exists(SiteTree::class)) {
             return SiteTree::get()->count();
         }
         return 0;
@@ -96,8 +96,6 @@ class DashboardContentSummaryPanel extends DashboardPanel
         ));
 
         if ($groups->exists()) {
-            $count = ($this->Count) ? $this->Count : 7;
-
             $members = Member::get()
                 ->filter("Groups.ID", $groups->column("ID"))
                 ->count();

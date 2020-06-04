@@ -9,7 +9,7 @@ use UncleCheese\Dashboard\DashboardChart;
 use UncleCheese\Dashboard\DashboardPanel;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
 
-class DashboardRecentOrdersChartPanel extends DashboardPanel
+class RecentOrdersChartPanel extends DashboardPanel
 {
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
@@ -20,12 +20,12 @@ class DashboardRecentOrdersChartPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('SilverCommerce.RecentOrdersChart', 'Recent Orders Chart');
+        return _t(__CLASS__ . '.RecentOrdersChart', 'Recent Orders Chart');
     }
 
     public function getDescription()
     {
-        return _t('SilverCommerce.RecentOrdersChartDescription', 'Shows a chart of the last months orders.');
+        return _t(__CLASS__ . '.RecentOrdersChartDescription', 'Shows a chart of the last months orders.');
     }
 
     public function Chart()

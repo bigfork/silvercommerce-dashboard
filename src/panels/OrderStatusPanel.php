@@ -32,12 +32,12 @@ class OrderStatusPanel extends DashboardPanel
     
     public function getLabel()
     {
-        return _t('SilverCommerce.Orders','Orders');
+        return _t(__CLASS__ . '.Orders', 'Orders');
     }
 
     public function getDescription()
     {
-        return _t('SilverCommerce.OrderStatusDescription','Overview of orders by current status.');
+        return _t(__CLASS__ . '.OrderStatusDescription', 'Overview of orders by current status.');
     }
 
     public function OrdersProcessing()

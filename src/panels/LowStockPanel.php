@@ -2,15 +2,15 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
-use Product;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
 use UncleCheese\Dashboard\DashboardPanelAction;
 use SilverCommerce\CatalogueAdmin\Admin\CatalogueAdmin;
+use SilverCommerce\CatalogueAdmin\Model\CatalogueProduct;
 
-class DashboardLowStockPanel extends DashboardPanel
+class LowStockPanel extends DashboardPanel
 {
 
     private static $db = array (
@@ -26,12 +26,12 @@ class DashboardLowStockPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('SilverCommerce.LowStock','Low Stock');
+        return _t(__CLASS__ . '.LowStock', 'Low Stock');
     }
 
     public function getDescription()
     {
-        return _t('SilverCommerce.LowStockDescription','List of low stock products.');
+        return _t(__CLASS__ . '.LowStockDescription', 'List of low stock products.');
     }
 
     public function PanelHolder()
@@ -86,8 +86,7 @@ class DashboardLowStockPanel extends DashboardPanel
     public function Products()
     {
         $count = ($this->Count) ? $this->Count : 7;
-        
-        $products = Product::get();
+        $products = CatalogueProduct::get();
         
         if (class_exists("SilverCommerce\Stock\Extensions\ProductExtension")) {
             return $products->filterByCallback(function($item, $list) {

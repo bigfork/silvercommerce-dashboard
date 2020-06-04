@@ -12,7 +12,7 @@ use SilverStripe\Core\Injector\Injector;
 use UncleCheese\Dashboard\DashboardPanel;
 use UncleCheese\Dashboard\DashboardPanelAction;
 
-class DashboardNewCustomersPanel extends DashboardPanel
+class NewCustomersPanel extends DashboardPanel
 {
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/customers.png";
@@ -28,13 +28,13 @@ class DashboardNewCustomersPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('SilverCommerce.LatestCustomers','Latest Customers');
+        return _t(__CLASS__ . '.LatestCustomers', 'Latest Customers');
     }
 
 
     public function getDescription()
     {
-        return _t('SilverCommerce.LatestCustomersDescription','Shows latest customers to join.');
+        return _t(__CLASS__ . '.LatestCustomersDescription', 'Shows latest customers to join.');
     }
 
     /**

@@ -10,7 +10,7 @@ use SilverCommerce\OrdersAdmin\Model\Invoice;
 use UncleCheese\Dashboard\DashboardPanelAction;
 use SilverCommerce\OrdersAdmin\Admin\OrderAdmin;
 
-class DashboardRecentOrdersListPanel extends DashboardPanel
+class RecentOrdersListPanel extends DashboardPanel
 {
 
     private static $db = array (
@@ -25,12 +25,12 @@ class DashboardRecentOrdersListPanel extends DashboardPanel
 
     public function getLabel()
     {
-        return _t('SilverCommerce.RecentOrdersList', 'Recent Orders List');
+        return _t(__CLASS__ . '.RecentOrdersList', 'Recent Orders List');
     }
 
     public function getDescription()
     {
-        return _t('SilverCommerce.RecentOrdersListDescription', 'Shows a list of recent orders.');
+        return _t(__CLASS__ . '.RecentOrdersListDescription', 'Shows a list of recent orders.');
     }
 
     /**
