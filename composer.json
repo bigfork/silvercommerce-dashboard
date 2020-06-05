@@ -28,8 +28,7 @@
       "require": {
           "silverstripe/framework": "~4.0",
           "silvercommerce/orders-admin": "~1.3",
-          "unclecheese/dashboard": "^4.0",
-          "i-lateral/silverstripe-users": "^2.1"
+          "unclecheese/dashboard": "^4.0"
       },
       "extra": {
         "expose": [
