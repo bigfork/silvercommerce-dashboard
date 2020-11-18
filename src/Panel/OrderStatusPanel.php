@@ -4,6 +4,9 @@ namespace SilverCommerce\Dashboard\Panel;
 
 use UncleCheese\Dashboard\DashboardPanel;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
 
 class OrderStatusPanel extends DashboardPanel
 {
@@ -15,23 +18,31 @@ class OrderStatusPanel extends DashboardPanel
 		"PanelSize" => "small"
     );
 
-    private static $processing_statuses = [
-        "paid",
-        "processing",
-        "ready"
-    ];
+    /**
+     * Base classname to use for to retrieve statuses
+     *
+     * @var string
+     */
+    private static $order_class = Invoice::class;
 
-    private static $shipped_statuses = [
+    /**
+     * Config variable used to store statuses list
+     *
+     * @var string
+     */
+    private static $statuses_config = 'statuses';
+
+    /**
+     * List of statuses that can be ignored
+     *
+     * @var array
+     */
+    private static $ignore_statuses = [
         "dispatched",
-        "collected"
+        "collected",
+        "refunded"
     ];
 
-    private static $unpaid_statuses = [
-        "failed",
-        "pending",
-        "part-paid"
-    ];
-    
     public function getLabel()
     {
         return _t(__CLASS__ . '.Orders', 'Orders');
@@ -42,33 +53,25 @@ class OrderStatusPanel extends DashboardPanel
         return _t(__CLASS__ . '.OrderStatusDescription', 'Overview of orders by current status.');
     }
 
-    public function OrdersProcessing()
+    public function getStatusCount()
     {
-        $orders = Invoice::get()
-            ->filter(
-                'Status', $this->config()->processing_statuses
-            );
-        
-        return $orders->count();
-    }
+        $class = $this->config()->order_class;
+        $param = $this->config()->statuses_config;
+        $ignore = $this->config()->ignore_statuses;
+        $statuses = Config::inst()->get($class, $param);
+        $list = ArrayList::create();
 
-    public function OrdersShipped()
-    {
-        $orders = Invoice::get()
-            ->filter(
-                'Status', $this->config()->shipped_statuses
-            );
-        
-        return $orders->count();
-    }
+        foreach ($statuses as $key => $name) {
+            if (in_array($key, $ignore)) {
+                continue;
+            }
 
-    public function OrdersAwaitingPayment()
-    {
-        $orders = Invoice::get()
-            ->filter(
-                'Status', $this->config()->unpaid_statuses
-            );
-        
-        return $orders->count();
+            $list->add(ArrayData::create([
+                'Status' => $name,
+                'Count' => $class::get()->filter('Status', $key)->count()
+            ]));
+        }
+
+        return $list;
     }
 }
