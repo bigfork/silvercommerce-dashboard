@@ -5,10 +5,10 @@ namespace SilverCommerce\Dashboard\Panel;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
-use UncleCheese\Dashboard\DashboardPanel;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
-use UncleCheese\Dashboard\DashboardPanelAction;
+use ilateral\SilverStripe\Dashboard\DashboardPanelAction;
 use SilverCommerce\OrdersAdmin\Admin\OrderAdmin;
+use ilateral\SilverStripe\Dashboard\DashboardPanel;
 
 class RecentOrdersListPanel extends DashboardPanel
 {

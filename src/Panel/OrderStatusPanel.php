@@ -2,11 +2,11 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
-use UncleCheese\Dashboard\DashboardPanel;
-use SilverCommerce\OrdersAdmin\Model\Invoice;
-use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Core\Config\Config;
+use SilverCommerce\OrdersAdmin\Model\Invoice;
+use ilateral\SilverStripe\Dashboard\DashboardPanel;
 
 class OrderStatusPanel extends DashboardPanel
 {

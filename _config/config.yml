@@ -3,6 +3,6 @@ Name: silvercommercedashboard
 After:
   - '#orderadminconfig'
 ---
-UncleCheese\Dashboard\DashboardPanel:
+ilateral\SilverStripe\Dashboard\DashboardPanel:
   extensions:
     - SilverCommerce\Dashboard\Extension\DashboardPanelExtension

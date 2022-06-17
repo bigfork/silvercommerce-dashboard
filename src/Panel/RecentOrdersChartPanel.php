@@ -5,9 +5,9 @@ namespace SilverCommerce\Dashboard\Panel;
 use DateTime;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
-use UncleCheese\Dashboard\DashboardChart;
-use UncleCheese\Dashboard\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\DashboardChart;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
+use ilateral\SilverStripe\Dashboard\DashboardPanel;
 
 class RecentOrdersChartPanel extends DashboardPanel
 {
