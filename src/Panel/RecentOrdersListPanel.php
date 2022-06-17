@@ -2,13 +2,15 @@
 
 namespace SilverCommerce\Dashboard\Panel;
 
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
-use ilateral\SilverStripe\Dashboard\DashboardPanelAction;
 use SilverCommerce\OrdersAdmin\Admin\OrderAdmin;
-use ilateral\SilverStripe\Dashboard\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Components\DashboardPanelAction;
 
 class RecentOrdersListPanel extends DashboardPanel
 {
@@ -24,12 +26,12 @@ class RecentOrdersListPanel extends DashboardPanel
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
 
-    public function getLabel()
+    public function getLabel(): string
     {
         return _t(__CLASS__ . '.RecentOrdersList', 'Recent Orders List');
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return _t(__CLASS__ . '.RecentOrdersListDescription', 'Shows a list of recent orders.');
     }
@@ -39,20 +41,19 @@ class RecentOrdersListPanel extends DashboardPanel
      *
      * @return String
      */
-    public function Orderslink()
+    public function getOrderslink()
     {
         return Injector::inst()->create(OrderAdmin::class)->Link();
     }
 
-    public function PanelHolder()
+    public function getPanelHolder(): string
     {
-        Requirements::css("silvercommerce/dashboard: client/dist/css/dashboard.css");
-        return parent::PanelHolder();
+        return parent::getPanelHolder();
     }
 
-    public function getConfiguration()
+    public function getConfigurationFields(): FieldList
     {
-        $fields = parent::getConfiguration();
+        $fields = parent::getConfigurationFields();
 
         $fields->push(
             TextField::create(
@@ -64,12 +65,7 @@ class RecentOrdersListPanel extends DashboardPanel
         return $fields;
     }
 
-    /**
-     * Add view all button to actions
-     *
-     * @return ArrayList
-     */
-    public function getSecondaryActions()
+    public function getSecondaryActions(): ArrayList
     {
         $actions = parent::getSecondaryActions();
         $actions->push(
@@ -87,7 +83,7 @@ class RecentOrdersListPanel extends DashboardPanel
      *
      * @return DataList
      */
-    public function Orders()
+    public function getOrders(): DataList
     {
         $count = ($this->Count) ? $this->Count : 7;
         $status = Invoice::config()->incomplete_status;

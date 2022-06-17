@@ -5,9 +5,9 @@ namespace SilverCommerce\Dashboard\Panel;
 use DateTime;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
-use ilateral\SilverStripe\Dashboard\DashboardChart;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
-use ilateral\SilverStripe\Dashboard\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Components\DashboardChart;
 
 class RecentOrdersChartPanel extends DashboardPanel
 {
@@ -19,17 +19,17 @@ class RecentOrdersChartPanel extends DashboardPanel
         'PanelSize' => "large"
     );
 
-    public function getLabel()
+    public function getLabel(): string
     {
         return _t(__CLASS__ . '.RecentOrdersChart', 'Recent Orders Chart');
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return _t(__CLASS__ . '.RecentOrdersChartDescription', 'Shows a chart of the last months orders.');
     }
 
-    public function Chart()
+    public function getChart(): DashboardChart
     {
         $chart = DashboardChart::create(
             "Last 30 days orders",

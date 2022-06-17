@@ -5,13 +5,13 @@ namespace SilverCommerce\Dashboard\Panel;
 use DateTime;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\View\Requirements;
 use SilverStripe\Core\Injector\Injector;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
 use SilverCommerce\Reports\ItemsOrderedReport;
-use ilateral\SilverStripe\Dashboard\DashboardPanelAction;
-use ilateral\SilverStripe\Dashboard\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Components\DashboardPanelAction;
 
 class TopProductsPanel extends DashboardPanel
 {
@@ -28,12 +28,12 @@ class TopProductsPanel extends DashboardPanel
 
     private static $icon = "silvercommerce/dashboard: client/dist/images/top.png";
 
-    public function getLabel()
+    public function getLabel(): string
     {
         return _t(__CLASS__ . '.TopProducts', 'Top Products');
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return _t(__CLASS__ . '.TopProductsDescription' ,'Shows top selling products this month.');
     }
@@ -43,23 +43,23 @@ class TopProductsPanel extends DashboardPanel
      *
      * @return string
      */
-    public function ReportLink()
+    public function getReportLink(): string
     {
         if (class_exists(ItemsOrderedReport::class)) {
             return Injector::inst()->create(ItemsOrderedReport::class)->getLink();
         }
-        return null;
+
+        return "";
     }
 
-    public function PanelHolder()
+    public function getPanelHolder(): string
     {
-        Requirements::css("silvercommerce/dashboard: client/dist/css/dashboard.css");
-        return parent::PanelHolder();
+        return parent::getPanelHolder();
     }
 
-    public function getConfiguration()
+    public function getConfigurationFields(): FieldList
     {
-        $fields = parent::getConfiguration();
+        $fields = parent::getConfigurationFields();
 
         $fields->push(
             TextField::create(
@@ -71,16 +71,11 @@ class TopProductsPanel extends DashboardPanel
         return $fields;
     }
 
-    /**
-     * Add view all button to actions
-     *
-     * @return ArrayList
-     */
-    public function getSecondaryActions()
+    public function getSecondaryActions(): ArrayList
     {
 		$actions = parent::getSecondaryActions();
 		$actions->push(DashboardPanelAction::create(
-            $this->ReportLink(),
+            $this->getReportLink(),
             _t("SilverCommerce.ViewAll", "View All")
         ));
 			
@@ -92,7 +87,7 @@ class TopProductsPanel extends DashboardPanel
      *
      * @return ArrayList
      */
-    public function Products()
+    public function getProducts()
     {
         $return = ArrayList::create();
 

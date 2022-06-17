@@ -3,6 +3,12 @@ Name: silvercommercedashboard
 After:
   - '#orderadminconfig'
 ---
+
+# Inject custom styles and JS
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - "silvercommerce/dashboard: client/dist/css/dashboard.css"
+
 ilateral\SilverStripe\Dashboard\DashboardPanel:
   extensions:
     - SilverCommerce\Dashboard\Extension\DashboardPanelExtension

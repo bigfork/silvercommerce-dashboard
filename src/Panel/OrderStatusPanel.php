@@ -6,7 +6,7 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Core\Config\Config;
 use SilverCommerce\OrdersAdmin\Model\Invoice;
-use ilateral\SilverStripe\Dashboard\DashboardPanel;
+use ilateral\SilverStripe\Dashboard\Panels\DashboardPanel;
 
 class OrderStatusPanel extends DashboardPanel
 {
@@ -43,12 +43,12 @@ class OrderStatusPanel extends DashboardPanel
         "refunded"
     ];
 
-    public function getLabel()
+    public function getLabel(): string
     {
         return _t(__CLASS__ . '.Orders', 'Orders');
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return _t(__CLASS__ . '.OrderStatusDescription', 'Overview of orders by current status.');
     }
