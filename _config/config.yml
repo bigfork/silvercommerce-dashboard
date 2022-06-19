@@ -9,6 +9,6 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - "silvercommerce/dashboard: client/dist/css/dashboard.css"
 
-ilateral\SilverStripe\Dashboard\DashboardPanel:
+ilateral\SilverStripe\Dashboard\Panels\DashboardPanel:
   extensions:
-    - SilverCommerce\Dashboard\Extension\DashboardPanelExtension
+    - SilverCommerce\Dashboard\Extensions\DashboardPanelExtension

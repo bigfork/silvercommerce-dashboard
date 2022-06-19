@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverCommerce\Dashboard\Extension;
+namespace SilverCommerce\Dashboard\Extensions;
 
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\DataExtension;
@@ -17,9 +17,13 @@ class DashboardPanelExtension extends DataExtension
 {
     public function requireDefaultRecords()
     {
-        $config = SiteConfig::current_site_config();
+        $all_configs = SiteConfig::get();
 
-        if (!$config->DashboardPanels()->exists()) {
+        foreach ($all_configs as $config) {
+            if ($config->DashboardPanels()->exists()) {
+                continue;
+            }
+
             // Add chart panel
             $panel = RecentOrdersChartPanel::create();
             $panel->Title = $panel->getLabel();
