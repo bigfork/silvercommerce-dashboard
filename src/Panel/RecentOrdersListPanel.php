@@ -70,7 +70,7 @@ class RecentOrdersListPanel extends DashboardPanel
         $actions = parent::getSecondaryActions();
         $actions->push(
             DashboardPanelAction::create(
-                $this->OrdersLink(),
+                $this->getOrdersLink(),
                 _t("SilverCommerce.ViewAll", "View All")
             )
         );
