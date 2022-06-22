@@ -24,7 +24,7 @@ class RecentOrdersListPanel extends DashboardPanel
         'PanelSize' => "normal"
     );
 
-    private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
+    private static $font_icon = "clipboard-pencil";
 
     public function getLabel(): string
     {

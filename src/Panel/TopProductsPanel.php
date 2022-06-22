@@ -26,7 +26,7 @@ class TopProductsPanel extends DashboardPanel
 		'PanelSize' => "small"
 	);
 
-    private static $icon = "silvercommerce/dashboard: client/dist/images/top.png";
+    private static $font_icon = "cart";
 
     public function getLabel(): string
     {

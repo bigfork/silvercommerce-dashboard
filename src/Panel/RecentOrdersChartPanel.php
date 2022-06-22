@@ -13,7 +13,7 @@ class RecentOrdersChartPanel extends DashboardPanel
 {
     private static $table_name = 'DashboardRecentOrdersChartPanel';
 
-    private static $icon = "silvercommerce/dashboard: client/dist/images/order_162.png";
+    private static $font_icon = "chart-line";
 
     private static $defaults = array (
         'PanelSize' => "large"
