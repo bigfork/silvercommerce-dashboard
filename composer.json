@@ -26,10 +26,20 @@
           "issues": "https://github.com/silvercommerce/reports/issues"
       },
       "require": {
-          "silverstripe/framework": "~4.0",
-          "silvercommerce/orders-admin": "~1.3",
-          "i-lateral/silverstripe-dashboard": "^1.0"
+          "silverstripe/framework": "^5",
+          "silvercommerce/orders-admin": "dev-ss5",
+          "i-lateral/silverstripe-dashboard": "dev-ss5"
       },
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "https://github.com/bigfork/silvercommerce-orders-admin"
+            },
+            {
+                "type": "vcs",
+                "url": "https://github.com/bigfork/silverstripe-dashboard"
+            }
+        ],
       "extra": {
         "expose": [
             "client/dist"
